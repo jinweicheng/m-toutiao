@@ -1,7 +1,15 @@
 <template>
     <div class="login-container">
         <!-- 导航栏 -->
-        <van-nav-bar id="page-nav-bar" title="登录" />
+        <van-nav-bar id="page-nav-bar" title="登录">
+            <template #left>
+                <van-icon 
+                    name="cross" 
+                    size="18" 
+                    color="white"
+                    @click="$router.back()" />
+              </template>
+        </van-nav-bar>
         <!-- /导航栏 -->
 
         <!-- 登录表单 -->
@@ -126,7 +134,7 @@
                     // console.log('登录成功',res.data)
                     // token  refresh_token
                     this.$store.commit('setUser',res.data)
-
+                    this.$router.back()
                 } catch (error) { 
                     console.log('error',error)
                     if(error.response.status === 400) {
