@@ -28,3 +28,11 @@ export const loadUserInfo = authorization => {
         // }
     })
 }
+
+// 4、获取用户的频道信息
+export const loadUserChannels = () => {
+    return request({
+        method: 'GET',
+        url: '/v1_0/user/channels'
+    })
+}
